@@ -30,7 +30,4 @@ class YoEdgeServiceApplicationTests {
                 () -> redis.getMappedPort(REDIS_PORT));
     }
 
-    @Test
-    void verifyThatSpringContextLoads() {
-    }
 }
