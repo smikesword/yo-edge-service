@@ -61,6 +61,21 @@ spring:
             - name: CircuitBreaker
               args:
                 name: orderCircuitBreaker
+        - id: spa-route
+          uri: ${SPA_URL:http://localhost:9004}
+          predicates:
+            - Path=/,/*.css,/*.js,/favicon.ico
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: edge-service
+            client-secret: DPOHVymCFkbQoGqXcjthnmlrTC3bkdhZ
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/YoBookShop
   redis:
     connect-timeout: 2s
     host: localhost
